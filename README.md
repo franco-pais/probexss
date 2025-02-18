@@ -2,7 +2,7 @@
 This simpe script in Go automates testing for Blind XSS vulnerabilities by injecting payloads into query parameters of provided URLs. It supports GET, POST, and PUT requests while respecting a delay between requests.
 ### Features
   - Reads URLs from a file.
-  - Modifies all query parameters with XSS Payload.
+  - Modifies all query parameters with BXSS Payload.
   - Send requests using different HTTP methods.
   - Modifies User-Agent.
   - Mofifies delay per request for avoid detection.
@@ -17,4 +17,4 @@ This simpe script in Go automates testing for Blind XSS vulnerabilities by injec
 
 `nohup ./probexss <file.txt> > out.log 2>&1 &`
 
-***<sub>Remember you can paste more xss payloads in the string variable to increase the possibilities :) </sub>***
+***<sub>Remember you can paste more bxss payloads in the string variable to increase the possibilities :) </sub>***
