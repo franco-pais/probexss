@@ -1,5 +1,5 @@
 # Probexss
-This simpe script in Go automates testing for XSS vulnerabilities by injecting payloads into query parameters of provided URLs. It supports GET, POST, and PUT requests while respecting a delay between requests.
+This simpe script in Go automates testing for Blind XSS vulnerabilities by injecting payloads into query parameters of provided URLs. It supports GET, POST, and PUT requests while respecting a delay between requests.
 ### Features
   - Reads URLs from a file.
   - Modifies all query parameters with XSS Payload.
