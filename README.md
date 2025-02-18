@@ -13,7 +13,7 @@ This simpe script in Go automates testing for XSS vulnerabilities by injecting p
 
 `./probexss <file.txt>`
 
-**If you want automatize you can execute the next command:**
+**If you want automatize the script in your VPS and go to sleep you can execute the next command:**
 
 `nohup ./probexss <file.txt> > out.log 2>&1 &`
 
