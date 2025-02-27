@@ -5,11 +5,13 @@ This simpe script in Go automates testing for Blind XSS vulnerabilities by injec
   - Modifies all query parameters with BXSS Payload.
   - Send requests using different HTTP methods.
   - Modifies User-Agent.
-  - Mofifies delay per request for avoid detection.
+  - Modifies delay per request for avoid detection.
 ## Installation
 `go build -o probebxss main.go`
 ## Use
 **The file must be .txt**
+
+**Remember change the domain for you domain XSSHunter or another one in payloads section**
 
 `./probebxss <file.txt>`
 
